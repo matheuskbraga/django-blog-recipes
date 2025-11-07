@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog de Receitas</title>
+</head>
+<body>
+    {% if messages %}
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+    <section>
+        <ul>
+        {% for receita in receitas %}
+            <li><a href="{% url 'detalhes_receita' receita.id %}">{{ receita.titulo }}</a>
+
+                <a href="{% url 'editar_receita' id_receita_=receita.id %}"> | Editar</a>
+            </li>
+        {% endfor %}
+        </ul>
+    </section>
+</body>
+</html>
